@@ -2,7 +2,7 @@
 
 ## This program requires the following arguments. 
 
-main class: mainVARSSMEx
+main: mainVARSSMEx.java
 
 arg1: Root directory
 
