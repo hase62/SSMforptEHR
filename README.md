@@ -1,6 +1,6 @@
 # SSMforptEHR
 
-This program requires the following arguments. 
+-This program requires the following arguments. 
 
 arg1: Root directory
 
@@ -21,7 +21,7 @@ arg8: External input at t=0
 arg9: Given regulatory structure from external input
 
 
-For example, you can indicate
+-For example, you can indicate
 
 
 testdata PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO 
