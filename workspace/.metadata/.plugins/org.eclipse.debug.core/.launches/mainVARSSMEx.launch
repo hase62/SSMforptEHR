@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/Hasegawa/src/Hasegawa/TimeSeries/Linear/VARSSMEx/mainVARSSMEx.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Hasegawa.TimeSeries.Linear.VARSSMEx.mainVARSSMEx"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/Users/takaorihasegawa/Git/SSMforptEHR/testdata PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Hasegawa"/>
+</launchConfiguration>

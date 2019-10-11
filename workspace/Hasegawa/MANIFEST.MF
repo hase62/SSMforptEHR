@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Sealed: true
+Main-Class: Hasegawa.TimeSeries.Linear.VARSSMEx.mainVARSSMEx
+Class-Path: ./Jama-1.0.2.jar
