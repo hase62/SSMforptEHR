@@ -1,6 +1,6 @@
 # SSMforptEHR
 
-This program required the following arguments. 
+This program requires the following arguments. 
 
 java -jar VARSSM.jar <root directory> <observation data> <given regularoty structure among hidden variables> <id> <setting file> <output directory> <external input> <external input at t=0> <given regulatory structure from external input>
 
