@@ -10,6 +10,7 @@ public class vsSetting extends Setting{
 	public boolean Spacom = true;
 	public boolean Separate=true;
 	public double testPredictionAbility = 0;
+	public double[] nu_kurtosis;
 	
 	public void set_vs(final ArrayList<Double> s){
 		this.Mean_of_Mu0 = s.get(0);

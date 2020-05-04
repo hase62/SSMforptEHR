@@ -40,6 +40,7 @@ public class Storage {
 	protected double[][][] Kurtosis_mean_Rinv_H_t;
 	
 	protected double[] Kurtosis_skew_sq_mean_sum;
+	protected double[] Dif_y_x_delta_skew_mean_sum;
 	protected double[] Dif_y_x_skew_mean_sum;
 	protected double[] Dif_y_x_sq_sum;
 	protected double[][] Skew_mean_x_sum;
@@ -90,6 +91,7 @@ public class Storage {
 		this.Kurtosis_mean_Rinv_H_t = new double[tsda.allTime][tsda.elementNum][sysDim];
 		
 		this.Kurtosis_skew_sq_mean_sum = new double[tsda.elementNum];
+		this.Dif_y_x_delta_skew_mean_sum = new double[tsda.elementNum];
 		this.Dif_y_x_skew_mean_sum = new double[tsda.elementNum];
 		this.Dif_y_x_sq_sum = new double[tsda.elementNum];
 		this.Skew_mean_x_sum = new double[tsda.elementNum][sysDim];
@@ -211,6 +213,7 @@ public class Storage {
 				double[][] Kurtosis_mean_Rinv_t, double[][][] Htrans_Kurtosis_mean_Rinv_H_t, 
 				double[][][] Kurtosis_mean_Rinv_H_t, 
 				double[] Kurtosis_skew_sq_mean_sum, 
+				double[] Dif_y_x_delta_skew_mean_sum, 
 				double[] Dif_y_x_skew_mean_sum, 
 				double[] Dif_y_x_sq_sum, 
 				double[][] Skew_mean_x_sum, 
@@ -234,6 +237,7 @@ public class Storage {
 		if(Htrans_Kurtosis_mean_Rinv_H_t!=null) Calculator.copy(this.Htrans_Kurtosis_mean_Rinv_H_t, Htrans_Kurtosis_mean_Rinv_H_t);
 		if(Kurtosis_mean_Rinv_H_t!=null) Calculator.copy(this.Kurtosis_mean_Rinv_H_t, Kurtosis_mean_Rinv_H_t);
 		if(Kurtosis_skew_sq_mean_sum!=null) Calculator.copy(this.Kurtosis_skew_sq_mean_sum, Kurtosis_skew_sq_mean_sum);
+		if(Dif_y_x_delta_skew_mean_sum!=null) Calculator.copy(this.Dif_y_x_delta_skew_mean_sum, Dif_y_x_delta_skew_mean_sum);
 		if(Dif_y_x_skew_mean_sum!=null) Calculator.copy(this.Dif_y_x_skew_mean_sum, Dif_y_x_skew_mean_sum);
 		if(Dif_y_x_sq_sum!=null) Calculator.copy(this.Dif_y_x_sq_sum, Dif_y_x_sq_sum);
 		if(Skew_mean_x_sum!=null) Calculator.copy(this.Skew_mean_x_sum, Skew_mean_x_sum);
@@ -248,6 +252,7 @@ public class Storage {
 							   double[][] Kurtosis_mean_Rinv_t, double[][][] Htrans_Kurtosis_mean_Rinv_H_t, 
 							   double[][][] Kurtosis_mean_Rinv_H_t,
 							   double[] Kurtosis_skew_sq_mean_sum, 
+							   double[] Dif_y_x_delta_skew_mean_sum, 
 							   double[] Dif_y_x_skew_mean_sum, 
 							   double[] Dif_y_x_sq_sum, 
 							   double[][] Dif_skeSkew_mean_x_sumw_mean_x_sum, 
@@ -271,6 +276,7 @@ public class Storage {
 		if(this.Htrans_Kurtosis_mean_Rinv_H_t!=null && Htrans_Kurtosis_mean_Rinv_H_t!=null) Calculator.copy(Htrans_Kurtosis_mean_Rinv_H_t, this.Htrans_Kurtosis_mean_Rinv_H_t);
 		if(this.Kurtosis_mean_Rinv_H_t!=null && Kurtosis_mean_Rinv_H_t!=null) Calculator.copy(Kurtosis_mean_Rinv_H_t, this.Kurtosis_mean_Rinv_H_t);
 		if(this.Kurtosis_skew_sq_mean_sum!=null && Kurtosis_skew_sq_mean_sum!=null) Calculator.copy(Kurtosis_skew_sq_mean_sum, this.Kurtosis_skew_sq_mean_sum);
+		if(this.Dif_y_x_delta_skew_mean_sum!=null && Dif_y_x_delta_skew_mean_sum!=null) Calculator.copy(Dif_y_x_delta_skew_mean_sum, this.Dif_y_x_delta_skew_mean_sum);
 		if(this.Dif_y_x_skew_mean_sum!=null && Dif_y_x_skew_mean_sum!=null) Calculator.copy(Dif_y_x_skew_mean_sum, this.Dif_y_x_skew_mean_sum);
 		if(this.Dif_y_x_sq_sum!=null && Dif_y_x_sq_sum!=null) Calculator.copy(Dif_y_x_sq_sum, this.Dif_y_x_sq_sum);
 		if(this.Skew_mean_x_sum!=null && Skew_mean_x_sum!=null) Calculator.copy(Skew_mean_x_sum, this.Skew_mean_x_sum);

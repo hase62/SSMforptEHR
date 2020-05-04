@@ -634,4 +634,28 @@ public class TimeSeriesDataArray {
 			}
 		}
 	}
+	
+	public double[] calc_kurtosis(double nu_kurtosis) {
+		double[] mean = new double[this.elementNum];
+		double[] kurtosis = new double[this.elementNum];
+		for (int t = 0; t < this.ObservationData.length; t++) {
+			for (int i = 0; i < this.elementNum; i++) {
+				mean[i] += this.ObservationData[t][i] / (double)this.ObservationData.length;
+			}
+		}
+		for (int t = 0; t < this.ObservationData.length; t++) {
+			for (int i = 0; i < this.elementNum; i++) {
+				kurtosis[i] += Math.pow(this.ObservationData[t][i] - mean[i], 4) / (double)this.ObservationData.length;
+			}
+		}
+		for (int i = 0; i < kurtosis.length; i++) {
+			if(kurtosis[i]< 4) {
+				kurtosis[i] = nu_kurtosis;
+			} else {
+				kurtosis[i] = nu_kurtosis / Math.sqrt(kurtosis[i] - 3);				
+				if(kurtosis[i] < 2) kurtosis[i] = 2;
+			}
+		}
+		return kurtosis;
+	}
 }

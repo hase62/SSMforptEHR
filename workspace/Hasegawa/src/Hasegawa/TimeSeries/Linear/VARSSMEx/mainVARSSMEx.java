@@ -123,7 +123,7 @@ public class mainVARSSMEx {
 				Calculator.copy(TimeSeriesData.givenG, givenG_tmp);				
 			}
 		}
-		System.out.println("Initial Loop 2 - Normalization Done ...... " + Math.sqrt(vINF.getRatioXZ()));	
+		if(Setting.Drug) System.out.println("Initial Loop 2 - Normalization Done ...... " + Math.sqrt(vINF.getRatioXZ()));	
 		vINF.vsSto.Criterion = Double.MAX_VALUE;
 		
 		/* Temp

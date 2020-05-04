@@ -11,8 +11,6 @@ import RandomGenerator.Sfmt;
 
 public class vseInference extends vsInference{
 
-	protected boolean delta_changed = true;
-
 	public vseInference(final int SYD, vsSetting SET, TimeSeriesDataArray TSDA, Matrix MP, Sfmt Sf, vsStorage vStor) {
 		super(SYD, SET, TSDA, MP, Sf, vStor);
 	}

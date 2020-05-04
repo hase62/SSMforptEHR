@@ -108,7 +108,7 @@ public class vsParameter extends Parameter{
 		//Calculator.setvalue(this.Delta, 0.1);
 
 		this.Nu = new double[tsda.elementNum];
-		Calculator.setvalue(this.Nu, 2);
+		if(set.nu_kurtosis != null) Calculator.copy(this.Nu, set.nu_kurtosis);
 		
 		this.Skew_mean_t = new double[tsda.allTime][tsda.elementNum];
 		this.Skew_sq_mean_t = new double[tsda.allTime][tsda.elementNum];

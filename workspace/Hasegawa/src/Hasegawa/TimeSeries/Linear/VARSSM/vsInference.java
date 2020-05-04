@@ -80,6 +80,7 @@ public class vsInference extends Inference{
 	protected double[][][] Kurtosis_mean_Rinv_H_t;
 	
 	protected double[] Kurtosis_skew_sq_mean_sum;
+	protected double[] Dif_y_x_delta_skew_mean_sum;
 	protected double[] Dif_y_x_skew_mean_sum;
 	protected double[] Dif_y_x_abs_max_sign;
 	protected double[] Dif_y_x_sq_sum;
@@ -144,6 +145,7 @@ public class vsInference extends Inference{
 		this.Kurtosis_mean_Rinv_H_t = new double[this.tsda.allTime][this.tsda.elementNum][this.sysDim];
 
 		this.Kurtosis_skew_sq_mean_sum = new double[this.tsda.elementNum];
+		this.Dif_y_x_delta_skew_mean_sum = new double[this.tsda.elementNum];
 		this.Dif_y_x_skew_mean_sum = new double[this.tsda.elementNum];
 		this.Dif_y_x_sq_sum = new double[this.tsda.elementNum];
 		this.Dif_y_x_abs_max_sign = new double[this.tsda.elementNum];
@@ -1605,7 +1607,7 @@ public class vsInference extends Inference{
 		/* Profiles */
 		vSto.setExpectations(this.Txx_obs, this.Txx, this.Tyx, this.Txx_m, this.Txx_mm, this.Txz_mm, 
 							 this.Txz_m, this.sum_x, this.sum_xm, this.sum_zm, null, null, null, null, 
-							 null, null, null, null, null, null, null, null, this.Calculator);
+							 null, null, null, null, null, null, null, null, null, this.Calculator);
 		vSto.setProfiles(this.x0_s, this.x_p, this.x_f, this.x_s, this.y_p);
 		
 		/* likelihood */
@@ -1631,7 +1633,7 @@ public class vsInference extends Inference{
 		/* Profiles */
 		vSto.getExpectations(this.Txx_obs, this.Txx, this.Tyx, this.Txx_m, this.Txx_mm, this.Txz_mm, this.Txz_m, 
 							 this.sum_x, this.sum_xm, this.sum_zm, null, null, null, null, null, null, 
-							 null, null, null, null, null, null, this.Calculator);
+							 null, null, null, null, null, null, null, this.Calculator);
 		vSto.getProfiles(this.x0_s, this.x_p, this.x_f, this.x_s, this.y_p, this.Calculator);
 		
 		/* likelihood */
