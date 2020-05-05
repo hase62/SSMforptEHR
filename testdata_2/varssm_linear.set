@@ -1,0 +1,18 @@
+0	Initial Mean of Mu0(-1:At Steady State)
+0.05	S.D. of Mu0(Diagonal-Elementwise Gaussian)
+5.0e-2	Condition of Convergence
+5	Loop
+2	Update Mu0(0:non-update, 1:update, 2update for each x0)
+TRUE	Print Progress
+2160	Maximum Calculation Time (min)
+FALSE	Drug Profiles
+1	Maximum Observation Noise(<0:rI)
+FALSE	Constant Input
+0.2	Minimum Degradation Rate(Must Be Positive Value)
+0	Information Criterion(0:BIC, 1:AIC)
+1 	Time Interval(1/t:1=minimum observation time interval)
+1 	SystemNoise(<0:qI, 0:q, >0:fix)
+FALSE	GivenRegulation(If TRUE, Set Given.txt and GivenG.txt for Drug)
+0	SPE-Calculated Time-Point(0:Use All Time-points)
+FALSE	Is a Pharmacogemics with Long Steady State 
+8	SystemDimension

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/Hasegawa/src/Hasegawa/TimeSeries/Linear/stFilter/mainstFilter.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Hasegawa.TimeSeries.Linear.stFilter.mainstFilter"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/Users/takanorihasegawa/GitHub/SSMforptEHR/testdata_2 Linear/obsData_norm_sk_pred_8nodes_Noise0.1-0.3ts1.0ID0.txt NO 0 varssm_linear.set obsData_norm_sk_pred_8nodes_Noise0.1-0.3ts1.0ID0 NO NO NO 2"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Hasegawa"/>
+</launchConfiguration>

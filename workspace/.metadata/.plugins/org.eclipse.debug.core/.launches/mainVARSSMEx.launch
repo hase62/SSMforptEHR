@@ -9,6 +9,6 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Hasegawa.TimeSeries.Linear.VARSSMEx.mainVARSSMEx"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/Users/takaorihasegawa/Git/SSMforptEHR/testdata PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/Users/takanorihasegawa/GitHub/SSMforptEHR/testdata_1 PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO 5&#10;&#10;/Users/takanorihasegawa/GitHub/SSMforptEHR/testdata PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Hasegawa"/>
 </launchConfiguration>
