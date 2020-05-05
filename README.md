@@ -1,6 +1,6 @@
 # SSMforptEHR
 
-## There exist two programs for the prediction of blood test values using state space models with Gaussian and skew-t distributed observation noises. 
+### There exist two programs for the prediction of blood test values using state space models with Gaussian and skew-t distributed observation noises. 
 
 ### SSM with Gaussian noise requires the following arguments. 
 
@@ -24,7 +24,7 @@ arg8: External input at t=0
 
 arg9: Given regulatory structure from external input
 
-## For example, you can run
+### For example, you can run
 
 java -jar SSM.jar testdata_1 PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO
 
@@ -52,7 +52,7 @@ arg9: Given regulatory structure from external input
 
 arg10: Parameter nu for Gamma distribution
 
-## For example, you can indicate
+### For example, you can indicate
 
 java -jar stSSM.jar testdata_1 PG.Obs.txt NO 0 varssm_test.set Output PG.Drug.txt Z0.txt NO 5
 
