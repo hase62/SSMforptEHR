@@ -5,7 +5,6 @@ import java.util.Collections;
 
 import Hasegawa.IO.TimeSeriesDataArray;
 import Hasegawa.TimeSeries.Inference;
-import Hasegawa.TimeSeries.Linear.VARSSM.vsSetting;
 import Hasegawa.matrix.Matrix;
 import Hasegawa.stat.simpleMath;
 import RandomGenerator.Sfmt;
@@ -284,7 +283,12 @@ public class vsInference extends Inference{
 						|| this.Calculator.checkAbsValues(this.A, 0.9999)){
 				break;
 			}
-			this.Update(false, true, false, false, false);
+			Update(false, true, false, false, false);
+			if(this.iteration % 20 == 5) {
+				this.getParameters();
+				//System.out.println("Identity Enforced");
+				CSSM();
+			}
 			this.iteration++;
 		}
 		this.iteration = 0;
@@ -2017,4 +2021,56 @@ public class vsInference extends Inference{
 		this.Calculator.copy(this.vsSto.predictionAbility, this.predictionAbility);
 	}
 
+	
+	protected void CSSM() {
+		
+		double[] rootR = new double[this.tsda.elementNum];
+		for (int i = 0; i < rootR.length; i++) rootR[i] = Math.sqrt(R[i]);
+		double[] rootRinv = new double[this.tsda.elementNum];
+		for (int i = 0; i < rootRinv.length; i++) rootRinv[i] = Math.sqrt(Rinv[i]);
+		
+		double[][] rootRinvH = new double[this.tsda.elementNum][this.sysDim];
+		this.Calculator.multAB(rootRinv, this.H, rootRinvH);
+		
+		double[][] u = new double[this.tsda.elementNum][this.sysDim];
+
+		double[] s;
+		if (this.tsda.elementNum > this.sysDim) s = new double[this.sysDim];
+		else s = new double[this.tsda.elementNum];
+		double[][] v = new double[this.sysDim][this.sysDim];
+		this.Calculator.SVDecomposition(rootRinvH, u, v, s);
+		double[][] Dec = new double[this.sysDim][this.sysDim];
+		double[] eigen = new double[this.sysDim];
+		for (int i = 0; i < Dec.length; i++) {
+			Dec[i][i] = s[i];
+			eigen[i] = s[i] * s[i];
+		}
+	
+		double[][] tempH = new double[this.tsda.elementNum][this.sysDim];
+		this.Calculator.multAB(u, Dec, tempH);
+		this.Calculator.multAB(rootR, tempH);
+		this.vPa.setH(tempH);
+		
+		double[][] tempF = new double[this.sysDim][this.sysDim];
+		this.Calculator.transpose(v);
+		this.Calculator.multAddABCt(v, F, v, tempF);
+		this.vPa.setF(tempF);
+		
+		if(this.vSet.Input){
+			double[]tempU = new double[this.sysDim];
+			this.Calculator.multAx(tempF, s, eigen);
+			this.vPa.setU(tempU);
+		}
+		
+		if(this.vSet.Drug){
+			double[][]tempG = new double[this.sysDim][this.tsda.drugMulRepSize[0].length];
+			this.Calculator.multAB(v, this.G, tempG);
+			this.vPa.setG(tempG);
+		}
+		for (int rep = 0; rep < this.tsda.repSize; rep++) {
+			this.Calculator.multAx(v, this.x0_[rep], this.x0_s[rep]);
+		}
+		
+		this.vPa.setx0(this.x0_s);
+	}
 }

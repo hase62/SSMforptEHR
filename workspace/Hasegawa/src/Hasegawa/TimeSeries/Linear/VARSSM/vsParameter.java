@@ -44,7 +44,7 @@ public class vsParameter extends Parameter{
 		/* G */
 		if(set.Drug) {
 			this.G = new double[sysDim][tsda.drugMulRepSize[0].length];
-			Calculator.setvalue(this.G, 0.00);
+			Calculator.setGaussian(this.G, -0.1, 0.1, sf);
 		}
 		
 		/* U */
