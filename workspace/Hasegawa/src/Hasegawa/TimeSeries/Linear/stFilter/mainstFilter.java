@@ -107,15 +107,19 @@ public class mainstFilter {
 		/* Adjust Scale for Z */
 		double z_multi = 1;		
 		if(Setting.Drug){
+			/*
+			 * Store Given F and G, and try to update all elements
+			 */
 			double[][] givenF_tmp = Calculator.copy_generate(TimeSeriesData.givenF);
 			Calculator.setvalue(TimeSeriesData.givenF, 1.0);
+			
 			double[][] givenG_tmp = null;
-			if(Setting.Drug) {
-				givenG_tmp = Calculator.copy_generate(TimeSeriesData.givenG);
-				Calculator.setvalue(TimeSeriesData.givenG, 1.0);
-			}
+			givenG_tmp = Calculator.copy_generate(TimeSeriesData.givenG);
+			Calculator.setvalue(TimeSeriesData.givenG, 1.0);
+
 			z_multi = Math.sqrt(vINF.getRatioXZ()) * 1.0;
 			System.out.println("Initial Loop 2 - Fixing Upate ...... " + z_multi);
+			z_multi = 1;
 			Sf = new Sfmt(ID);
 			TimeSeriesData.drugModifyVariance(z_multi);		
 			vSTO = new vsStorage();
@@ -123,6 +127,10 @@ public class mainstFilter {
 			vINF = new stInference(systemDimension, Setting, TimeSeriesData, Calculator, Sf, vSTO);
 			
 			vINF.preparationPhase(0, 0);
+			
+			/*
+			 * Override Given Regulation
+			 */
 			Calculator.copy(TimeSeriesData.givenF, givenF_tmp);
 			if(Setting.Drug) {
 				Calculator.copy(TimeSeriesData.givenG, givenG_tmp);				
@@ -191,6 +199,7 @@ public class mainstFilter {
 		if(vINF.vSet.maxLoop > 4) starting_row = 2;
 		for (int l = starting_row; l < vINF.vSet.maxLoop; l++) {
 			if(vINF.vPa.getH() == null) break;
+			if(TimeSeriesData.elementNum > 30) break;
 			if(System.currentTimeMillis() - timeAtStart > (long)(Setting.timer * 3.0 / 4.0)) l = (int)vINF.vSet.maxLoop - 1;
 
 			/* For Each Gene */
@@ -226,7 +235,7 @@ public class mainstFilter {
 		}
 				
 		/* Write Results */
-		File mkdir = new File(args[0] + "/" + args[5] + "/UKF/Cri" +Setting.Criterion +"ID" + ID);
+		File mkdir = new File(args[0] + "/" + args[5] + "/Cri" +Setting.Criterion +"ID" + ID);
 		if (mkdir.mkdir());
 		else mkdir.mkdirs();
 		String pass2 = mkdir.getPath();

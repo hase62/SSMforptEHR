@@ -266,7 +266,12 @@ public class vsInference extends Inference{
 		double temporalWeight = this.vSet.WeightLASSO;
 		this.vSet.WeightLASSO = 0.0;
 		this.convergence = false;
-		while(Math.abs(this.currentLogLikelihood - this.previousLogLikelihood) > this.vSet.Condition_of_Convergence) {
+		while(Math.abs(this.currentLogLikelihood - this.previousLogLikelihood) > this.vSet.Condition_of_Convergence ||
+				this.currentLogLikelihood < this.previousLogLikelihood) {
+		/*
+		 * Changed at 20240922
+		 * while(Math.abs(this.currentLogLikelihood - this.previousLogLikelihood) > this.vSet.Condition_of_Convergence) {
+		 */
 			this.getParameters();
 			this.KalmanFilter(this.vSet.Drug, this.vSet.Input);
 			this.KalmanSmoother();
@@ -284,9 +289,9 @@ public class vsInference extends Inference{
 				break;
 			}
 			Update(false, true, false, false, false);
-			if(this.iteration % 20 == 5) {
+			if(this.iteration % 50 == 5) {
 				this.getParameters();
-				//System.out.println("Identity Enforced");
+				System.out.println("Identity Enforced");
 				CSSM();
 			}
 			this.iteration++;
