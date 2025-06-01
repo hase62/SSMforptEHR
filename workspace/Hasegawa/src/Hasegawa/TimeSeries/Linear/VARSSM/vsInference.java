@@ -289,7 +289,7 @@ public class vsInference extends Inference{
 				break;
 			}
 			Update(false, true, false, false, false);
-			if(this.iteration % 50 == 5) {
+			if(this.iteration % 50 == 5 && this.vSet.Print_Progress) {
 				this.getParameters();
 				System.out.println("Identity Enforced");
 				CSSM();
